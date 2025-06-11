@@ -124,7 +124,9 @@ export default {
     'browser/components/**/*.css',
     // Add New Tab directory path (note: located in browser/components/ dir)
     'browser/extensions/newtab/css/**/*.css',
+    'browser/themes/**/*.css',
     'toolkit/content/widgets/**/*.css',
+    'toolkit/themes/**/*.css',
   ],
   externalVarMapping: {
     // For everything that matches the glob on the left hand side, get the vars from
