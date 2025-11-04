@@ -260,7 +260,7 @@ describe('usage aggregation', () => {
         path: filePath,
         descriptor: d.prop,
         value: d.value,
-        isToken: Boolean(d.containsDesignToken),
+        containsToken: Boolean(d.containsDesignToken),
         isIgnored: Boolean(d.isExcluded),
       };
       if (Array.isArray(d.tokens) && d.tokens.length > 0) {

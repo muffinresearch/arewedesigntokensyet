@@ -25,21 +25,21 @@ function sampleData() {
         values: {
           0: {
             count: 3,
-            isToken: false,
+            containsToken: false,
             isIgnored: true,
             files: { 'a.css': 2, 'b.css': 1 },
             id: 'm0',
           },
           '0 auto': {
             count: 2,
-            isToken: false,
+            containsToken: false,
             isIgnored: false,
             files: { 'a.css': 1, 'c.css': 1 },
             id: 'm1',
           },
           'var(--token-x)': {
             count: 5,
-            isToken: true,
+            containsToken: true,
             isIgnored: false,
             files: { 't.css': 5 },
             id: 'mt',
@@ -50,14 +50,14 @@ function sampleData() {
         values: {
           '4px': {
             count: 10,
-            isToken: false,
+            containsToken: false,
             isIgnored: false,
             files: { 'p.css': 10 },
             id: 'p4',
           },
           '2px': {
             count: 10,
-            isToken: false,
+            containsToken: false,
             isIgnored: false,
             files: { 'p2.css': 10 },
             id: 'p2',
@@ -307,14 +307,14 @@ describe('check handling of malformed user content', () => {
           values: {
             '<script>alert(1)</script>': {
               count: 1,
-              isToken: false,
+              containsToken: false,
               isIgnored: false,
               files: { 'a.css': 1 },
               id: 'h1',
             },
             '<img src=x onerror=alert(2)>': {
               count: 1,
-              isToken: false,
+              containsToken: false,
               isIgnored: false,
               files: { 'b.css': 1 },
               id: 'h2',
@@ -395,7 +395,7 @@ describe('stats components: safe links and attributes', () => {
           values: {
             0: {
               count: 2,
-              isToken: false,
+              containsToken: false,
               isIgnored: false,
               files: {
                 'browser/a.css': 1,
@@ -452,7 +452,7 @@ describe('stats components: safe links and attributes', () => {
           values: {
             '#fff': {
               count: 1,
-              isToken: false,
+              containsToken: false,
               isIgnored: false,
               files: { 'browser/colors.css': 1 },
               id: 'x" onmouseover="alert(1)', // intentionally nasty
