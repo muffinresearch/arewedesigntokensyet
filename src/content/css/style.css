@@ -218,6 +218,7 @@ code {
   }
 }
 
+[data-status='excludedByStylelint'],
 [data-status='warn'] {
   background-color: var(--status-warn-background);
   border-left: var(--status-warn-border);

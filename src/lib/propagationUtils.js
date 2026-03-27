@@ -164,6 +164,42 @@ function ruleConsumesVar(node) {
 }
 
 /**
+ * Checks whether a comment node is a Stylelint disable-next-line directive
+ * specifically targeting the `stylelint-plugin-mozilla/use-design-tokens` rule.
+ *
+ * This is used to detect intentional rule suppression comments like:
+ * "stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens"
+ *
+ * @param {object} comment - The AST comment node to evaluate.
+ * @param {string} comment.type - The node type (expected to be "comment").
+ * @param {string} comment.text - The raw text content of the comment.
+ * @returns {boolean} True if the comment disables the specified Stylelint rule on the next line; otherwise false.
+ */
+function isStylelintDisableNextLine(comment) {
+  return (
+    comment.type === 'comment' &&
+    /^stylelint-disable-next-line\s+stylelint-plugin-mozilla\/use-design-tokens/.test(
+      comment.text.trim(),
+    )
+  );
+}
+
+/**
+ * Determines whether a given comment appears immediately before a node,
+ * i.e., on the exact previous line in the source file.
+ *
+ * This relies on source location metadata.
+ *
+ * @param {object} node - The AST node to check against.
+ * @param {object} comment - The AST comment node.
+ *
+ * @returns {boolean} True if the comment is exactly one line above the node; otherwise false.
+ */
+function isExactPreviousLine(node, comment) {
+  return node.source?.start?.line === comment.source?.end?.line + 1;
+}
+
+/**
  * Walks the CSS AST and collects:
  * - Tokenizable properties (e.g. `color`, `font-size`)
  * - Variable definitions (`--*`) that are not external
@@ -184,7 +220,18 @@ function collectDeclarations(root, foundVariables, filePath) {
     }
 
     if (isTokenizableProperty(node.prop)) {
+      let isExcludedByStylelint = false;
+      const prevNode = node.prev();
+      if (
+        prevNode &&
+        isStylelintDisableNextLine(prevNode) &&
+        isExactPreviousLine(node, prevNode)
+      ) {
+        isExcludedByStylelint = true;
+      }
+
       declarations.push({
+        isExcludedByStylelint,
         prop: node.prop,
         value: node.value,
         start: node.source.start,
@@ -238,7 +285,8 @@ async function resolveDeclarationReferences(
 
     decl.resolutionTrace = trace;
     decl.containsDesignToken = analysis.containsDesignToken;
-    decl.isExcluded = analysis.containsExcludedDeclaration;
+    decl.isExcluded =
+      analysis.containsExcludedDeclaration || decl.isExcludedByStylelint;
 
     const isIgnoredValue =
       Boolean(analysis.containsExcludedDeclaration) &&

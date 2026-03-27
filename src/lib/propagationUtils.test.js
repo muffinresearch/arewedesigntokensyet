@@ -107,6 +107,37 @@ describe('getPropagationData', () => {
     );
   });
 
+  test('excludes non-token usage with preceding stylelint-disable-next-line', async () => {
+    const css = `
+      .btn {
+        /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- some other comment */
+        background-color: #fff;
+      }
+    `;
+
+    fs.readFile.mockResolvedValueOnce(css);
+    const result = await getPropagationData(
+      '/project/src/components/button.css',
+    );
+
+    expect(result).toHaveProperty('foundPropValues');
+    expect(result).toHaveProperty('foundVariables');
+    expect(result.percentage).toBe(-1);
+    expect(result.designTokenCount).toBe(0);
+    expect(fs.writeFile).toHaveBeenCalled();
+
+    const props = result.foundPropValues;
+
+    expect(props).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          prop: 'background-color',
+          isExcluded: true,
+        }),
+      ]),
+    );
+  });
+
   test('extracts token usage from a single CSS file', async () => {
     const css = `
       :root {

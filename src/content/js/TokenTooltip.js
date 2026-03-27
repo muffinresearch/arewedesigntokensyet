@@ -93,6 +93,7 @@ export class TokenTooltip extends LitElement {
     const statusMsg = {
       good: '🏆 Nice use of Design Tokens!',
       warn: `☑️  This value doesn't need to use a Design Token.`,
+      excludedByStylelint: `🤔 This value is excluded by /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */`,
       bad: '❌ Not currently using a design token.',
     };
 
