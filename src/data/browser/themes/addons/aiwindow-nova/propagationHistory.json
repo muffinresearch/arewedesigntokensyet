@@ -3,5 +3,11 @@
     "date": "2026-07-01",
     "percentage": 0,
     "gitRevision": "d4a2cc2aa48ba5e56ce90680e90038843a7298c7"
+  },
+  {
+    "date": "2026-08-01",
+    "percentage": 0,
+    "delta": 0,
+    "gitRevision": "fdd583cd5a10d051053acda8b760c3bd5d800034"
   }
 ]
