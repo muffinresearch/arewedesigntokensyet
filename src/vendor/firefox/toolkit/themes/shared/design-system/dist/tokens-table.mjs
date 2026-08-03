@@ -363,6 +363,7 @@ export const tokensTable = {
       value: "var(--color-accent-attention)",
       name: "--button-badge-background-color",
     },
+    { value: "transparent", name: "--button-split-separator-background-color" },
     { value: "var(--background-color-box)", name: "--card-background-color" },
     {
       value: {
@@ -455,6 +456,7 @@ export const tokensTable = {
       value: "var(--background-color-dimmed-further)",
       name: "--panel-background-color-dimmed-further",
     },
+    { value: "var(--background-color-box)", name: "--popup-background-color" },
     {
       value: {
         light: "white",
@@ -1211,6 +1213,23 @@ export const tokensTable = {
     },
     {
       value: {
+        light: "rgb(240, 240, 244)",
+        dark: "rgb(82, 82, 94)",
+        nativeTheme: "var(--border-color-deemphasized)",
+        platform: {
+          default: "var(--border-color-deemphasized)",
+          browserTheme: {
+            light: "rgb(240, 240, 244)",
+            dark: "rgb(82, 82, 94)",
+            default: "light-dark(rgb(240, 240, 244), rgb(82, 82, 94))",
+          },
+        },
+        default: "light-dark(rgb(240, 240, 244), rgb(82, 82, 94))",
+      },
+      name: "--popup-border-color",
+    },
+    {
+      value: {
         default: "var(--card-border-color)",
         nativeTheme: "-moz-sidebarborder",
         prefersContrast: "var(--card-border-color)",
@@ -1303,7 +1322,17 @@ export const tokensTable = {
       value: "var(--button-border-color-disabled)",
       name: "--select-border-color-disabled",
     },
-    { value: "var(--border-color-interactive)", name: "--toggle-border-color" },
+    {
+      value: {
+        light: "var(--color-gray-70)",
+        dark: "var(--border-color-interactive)",
+        prefersContrast: "var(--border-color-interactive)",
+        forcedColors: "var(--border-color-interactive)",
+        default:
+          "light-dark(var(--color-gray-70), var(--border-color-interactive))",
+      },
+      name: "--toggle-border-color",
+    },
     {
       value: {
         default: "var(--toggle-border-color)",
@@ -1340,16 +1369,25 @@ export const tokensTable = {
       value: "var(--border-radius-medium)",
       name: "--card-border-radius-compact",
     },
+    {
+      value: "var(--border-radius-medium)",
+      name: "--card-cover-image-border-radius",
+    },
     { value: "var(--border-radius-small)", name: "--checkbox-border-radius" },
     {
       value: "var(--border-radius-medium)",
       name: "--input-text-border-radius",
     },
     {
+      value: "var(--input-text-border-radius)",
+      name: "--input-search-border-radius",
+    },
+    {
       value: "var(--border-radius-small)",
       name: "--panel-menuitem-border-radius",
     },
     { value: "var(--border-radius-medium)", name: "--panel-border-radius" },
+    { value: "var(--border-radius-medium)", name: "--popup-border-radius" },
     {
       value: "var(--button-border-radius)",
       name: "--toolbarbutton-border-radius",
@@ -1410,6 +1448,7 @@ export const tokensTable = {
   ],
   "border-width": [
     { value: "1px", name: "--border-width" },
+    { value: "var(--border-width)", name: "--button-border-width-split" },
     { value: "var(--border-width)", name: "--card-border-width" },
     { value: "1px", name: "--badge-border-width" },
     { value: "var(--border-width)", name: "--message-bar-border-width" },
@@ -1928,6 +1967,7 @@ export const tokensTable = {
       value: "var(--button-min-height-large)",
       name: "--button-size-icon-large",
     },
+    { value: "160px", name: "--card-cover-image-height-default" },
     { value: "var(--size-item-small)", name: "--checkbox-size" },
     { value: "var(--size-item-small)", name: "--input-height" },
     { value: "var(--button-min-height)", name: "--input-text-min-height" },
@@ -1984,6 +2024,7 @@ export const tokensTable = {
     { value: "var(--dimension-relative-100)", name: "--space-large" },
     { value: "var(--dimension-relative-150)", name: "--space-xlarge" },
     { value: "var(--dimension-relative-200)", name: "--space-xxlarge" },
+    { value: "var(--space-xxsmall)", name: "--button-gap-split" },
     {
       value: "var(--button-padding-block) var(--button-padding-inline)",
       name: "--button-padding",
@@ -1998,6 +2039,11 @@ export const tokensTable = {
       name: "--button-padding-inline-small",
     },
     { value: 0, name: "--button-padding-icon" },
+    { value: "var(--space-small)", name: "--card-cover-image-padding" },
+    {
+      value: "var(--space-xsmall)",
+      name: "--card-cover-image-padding-compact",
+    },
     { value: "var(--space-large)", name: "--card-padding" },
     { value: "var(--space-small)", name: "--card-padding-compact" },
     { value: "var(--card-padding)", name: "--card-gap" },
@@ -2796,6 +2842,10 @@ export const tokensTable = {
   ],
   uncategorized: [
     { value: "center", name: "--button-content-alignment" },
+    { value: "cover", name: "--card-cover-image-object-fit-default" },
+    { value: "center", name: "--card-cover-image-object-position-default" },
+    { value: "var(--button-min-height-small)", name: "--small" },
+    { value: "var(--button-padding-block)", name: "--block" },
     {
       value: {
         nativeTheme: "var(--toolbar-text-color)",
@@ -3338,6 +3388,7 @@ export const tokensTable = {
     { value: "var(--dimension-20)", name: "--icon-size-medium" },
     { value: "var(--dimension-24)", name: "--icon-size-large" },
     { value: "var(--dimension-32)", name: "--icon-size-xlarge" },
+    { value: "var(--size-item-xlarge)", name: "--icon-size-xxlarge" },
     { value: "var(--icon-size-xsmall)", name: "--input-text-icon-size" },
     { value: "var(--icon-size-xsmall)", name: "--breadcrumb-icon-size" },
     { value: "var(--icon-size)", name: "--message-bar-icon-size" },
@@ -4132,10 +4183,12 @@ export const variableLookupTable = {
   "button-border-color-toolbar-selected":
     "var(--button-border-color-ghost-active)",
   "button-border-radius": "var(--border-radius-medium)",
+  "button-border-width-split": "var(--border-width)",
   "button-content-alignment": "center",
   "button-font-size": "var(--font-size-root)",
   "button-font-size-small": "var(--font-size-small)",
   "button-font-weight": "var(--font-weight-semibold)",
+  "button-gap-split": "var(--space-xxsmall)",
   "button-icon-fill": "currentColor",
   "button-icon-stroke": "var(--button-icon-fill)",
   "button-min-height": "var(--size-item-large)",
@@ -4153,6 +4206,7 @@ export const variableLookupTable = {
   "button-size-icon": "var(--button-min-height)",
   "button-size-icon-small": "var(--button-min-height-small)",
   "button-size-icon-large": "var(--button-min-height-large)",
+  "button-split-separator-background-color": "transparent",
   "button-text-color": {
     forcedColors: "ButtonText",
     brand: {
@@ -4318,6 +4372,12 @@ export const variableLookupTable = {
   "card-border-radius-compact": "var(--border-radius-medium)",
   "card-box-shadow": "var(--box-shadow-level-2)",
   "card-box-shadow-hover": "var(--box-shadow-level-4)",
+  "card-cover-image-border-radius": "var(--border-radius-medium)",
+  "card-cover-image-height-default": "160px",
+  "card-cover-image-padding": "var(--space-small)",
+  "card-cover-image-padding-compact": "var(--space-xsmall)",
+  "card-cover-image-object-fit-default": "cover",
+  "card-cover-image-object-position-default": "center",
   "card-focus-outline": "var(--focus-outline)",
   "card-font-size": "var(--font-size-root)",
   "card-font-size-compact": "var(--font-size-small)",
@@ -4409,6 +4469,7 @@ export const variableLookupTable = {
   "icon-size-medium": "var(--dimension-20)",
   "icon-size-large": "var(--dimension-24)",
   "icon-size-xlarge": "var(--dimension-32)",
+  "icon-size-xxlarge": "var(--size-item-xlarge)",
   "info-bar-border-color": {
     light: "var(--color-violet-desaturated-20)",
     dark: "var(--color-gray-60)",
@@ -4469,6 +4530,7 @@ export const variableLookupTable = {
   "input-text-icon-size": "var(--icon-size-xsmall)",
   "input-text-min-height": "var(--button-min-height)",
   "input-text-opacity-disabled": "var(--button-opacity-disabled)",
+  "input-search-border-radius": "var(--input-text-border-radius)",
   "input-width": "var(--size-item-small)",
   "link-color": {
     forcedColors: "LinkText",
@@ -4577,6 +4639,22 @@ export const variableLookupTable = {
     default: "light-dark(var(--color-black), rgb(251, 251, 254))",
   },
   "panel-width": "initial",
+  "popup-background-color": "var(--background-color-box)",
+  "popup-border-color": {
+    light: "rgb(240, 240, 244)",
+    dark: "rgb(82, 82, 94)",
+    nativeTheme: "var(--border-color-deemphasized)",
+    platform: {
+      default: "var(--border-color-deemphasized)",
+      browserTheme: {
+        light: "rgb(240, 240, 244)",
+        dark: "rgb(82, 82, 94)",
+        default: "light-dark(rgb(240, 240, 244), rgb(82, 82, 94))",
+      },
+    },
+    default: "light-dark(rgb(240, 240, 244), rgb(82, 82, 94))",
+  },
+  "popup-border-radius": "var(--border-radius-medium)",
   "popup-box-shadow": "var(--box-shadow-level-3)",
   "sidebar-background-color": {
     light: "white",
@@ -5034,6 +5112,8 @@ export const variableLookupTable = {
   "segmented-control-border-radius":
     "calc(var(--button-border-radius) + var(--focus-outline-width) + var(--focus-outline-offset) + var(--border-width))",
   "segmented-control-padding": "var(--space-xsmall)",
+  small: "var(--button-min-height-small)",
+  block: "var(--button-padding-block)",
   "select-background-color": "var(--button-background-color)",
   "select-background-color-hover": "var(--button-background-color-hover)",
   "select-background-color-disabled": "var(--button-background-color-disabled)",
@@ -5064,7 +5144,14 @@ export const variableLookupTable = {
   "toggle-background-color-pressed-hover": "var(--color-accent-primary-hover)",
   "toggle-background-color-pressed-active":
     "var(--color-accent-primary-active)",
-  "toggle-border-color": "var(--border-color-interactive)",
+  "toggle-border-color": {
+    light: "var(--color-gray-70)",
+    dark: "var(--border-color-interactive)",
+    prefersContrast: "var(--border-color-interactive)",
+    forcedColors: "var(--border-color-interactive)",
+    default:
+      "light-dark(var(--color-gray-70), var(--border-color-interactive))",
+  },
   "toggle-border-color-hover": {
     default: "var(--toggle-border-color)",
     forcedColors: "var(--border-color-interactive-hover)",
