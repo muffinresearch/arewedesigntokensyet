@@ -381,38 +381,6 @@ export const tokensTable = {
       name: "--card-header-background-color-active",
     },
     {
-      value: "var(--button-background-color)",
-      name: "--checkbox-background-color",
-    },
-    {
-      value: "var(--button-background-color-hover)",
-      name: "--checkbox-background-color-hover",
-    },
-    {
-      value: "var(--button-background-color-active)",
-      name: "--checkbox-background-color-active",
-    },
-    {
-      value: "var(--button-background-color-disabled)",
-      name: "--checkbox-background-color-disabled",
-    },
-    {
-      value: "var(--button-background-color-primary)",
-      name: "--checkbox-background-color-checked",
-    },
-    {
-      value: "var(--button-background-color-primary-hover)",
-      name: "--checkbox-background-color-checked-hover",
-    },
-    {
-      value: "var(--button-background-color-primary-active)",
-      name: "--checkbox-background-color-checked-active",
-    },
-    {
-      value: "var(--button-background-color-primary-disabled)",
-      name: "--checkbox-background-color-checked-disabled",
-    },
-    {
       value: {
         nativeTheme: "Field",
         platform: {
@@ -498,7 +466,19 @@ export const tokensTable = {
       value: {
         light: "rgba(0, 0, 0, 0.05)",
         dark: "var(--color-black-alpha-30)",
+        nativeTheme:
+          "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
         prefersContrast: "Field",
+        platform: {
+          default:
+            "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
+          browserTheme: {
+            light: "rgba(0, 0, 0, 0.05)",
+            dark: "var(--color-black-alpha-30)",
+            default:
+              "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
+          },
+        },
         default: "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
       },
       name: "--toolbar-field-background-color",
@@ -546,11 +526,31 @@ export const tokensTable = {
       name: "--toolbarbutton-badge-background-color",
     },
     {
-      value: "color-mix(in srgb, currentColor 17%, transparent)",
+      value: {
+        default: "color-mix(in srgb, currentColor 17%, transparent)",
+        forcedColors: "var(--button-background-color-hover)",
+        nativeTheme: "var(--button-background-color-ghost-hover)",
+        platform: {
+          default: "var(--button-background-color-ghost-hover)",
+          browserTheme: {
+            default: "color-mix(in srgb, currentColor 17%, transparent)",
+          },
+        },
+      },
       name: "--toolbarbutton-background-color-hover",
     },
     {
-      value: "color-mix(in srgb, currentColor 30%, transparent)",
+      value: {
+        default: "color-mix(in srgb, currentColor 30%, transparent)",
+        forcedColors: "var(--button-background-color-active)",
+        nativeTheme: "var(--button-background-color-ghost-active)",
+        platform: {
+          default: "var(--button-background-color-ghost-active)",
+          browserTheme: {
+            default: "color-mix(in srgb, currentColor 30%, transparent)",
+          },
+        },
+      },
       name: "--toolbarbutton-background-color-active",
     },
     {
@@ -1149,26 +1149,6 @@ export const tokensTable = {
       name: "--card-header-border-color-active",
     },
     {
-      value: "var(--border-color-interactive)",
-      name: "--checkbox-border-color",
-    },
-    {
-      value: "var(--checkbox-background-color-checked)",
-      name: "--checkbox-border-color-checked",
-    },
-    {
-      value: "var(--checkbox-background-color-checked-hover)",
-      name: "--checkbox-border-color-checked-hover",
-    },
-    {
-      value: "var(--checkbox-background-color-checked-active)",
-      name: "--checkbox-border-color-checked-active",
-    },
-    {
-      value: "var(--checkbox-background-color-checked-disabled)",
-      name: "--checkbox-border-color-checked-disabled",
-    },
-    {
       value: {
         light: "var(--color-violet-desaturated-20)",
         dark: "var(--color-gray-60)",
@@ -1243,7 +1223,12 @@ export const tokensTable = {
     {
       value: {
         default: "var(--border-color-transparent)",
+        nativeTheme: "var(--border-color-transparent)",
         prefersContrast: "var(--input-border-color)",
+        platform: {
+          default: "var(--border-color-transparent)",
+          browserTheme: { default: "var(--border-color-transparent)" },
+        },
       },
       name: "--toolbar-field-border-color",
     },
@@ -1373,7 +1358,6 @@ export const tokensTable = {
       value: "var(--border-radius-medium)",
       name: "--card-cover-image-border-radius",
     },
-    { value: "var(--border-radius-small)", name: "--checkbox-border-radius" },
     {
       value: "var(--border-radius-medium)",
       name: "--input-text-border-radius",
@@ -3351,10 +3335,6 @@ export const tokensTable = {
     },
     {
       value: "var(--button-opacity-disabled)",
-      name: "--checkbox-opacity-disabled",
-    },
-    {
-      value: "var(--button-opacity-disabled)",
       name: "--input-text-opacity-disabled",
     },
     {
@@ -4409,29 +4389,7 @@ export const variableLookupTable = {
   "card-header-text-color": "var(--button-text-color)",
   "card-header-text-color-hover": "var(--button-text-color-hover)",
   "card-header-text-color-active": "var(--button-text-color-active)",
-  "checkbox-background-color": "var(--button-background-color)",
-  "checkbox-background-color-hover": "var(--button-background-color-hover)",
-  "checkbox-background-color-active": "var(--button-background-color-active)",
-  "checkbox-background-color-disabled":
-    "var(--button-background-color-disabled)",
-  "checkbox-background-color-checked": "var(--button-background-color-primary)",
-  "checkbox-background-color-checked-hover":
-    "var(--button-background-color-primary-hover)",
-  "checkbox-background-color-checked-active":
-    "var(--button-background-color-primary-active)",
-  "checkbox-background-color-checked-disabled":
-    "var(--button-background-color-primary-disabled)",
-  "checkbox-border-color": "var(--border-color-interactive)",
-  "checkbox-border-color-checked": "var(--checkbox-background-color-checked)",
-  "checkbox-border-color-checked-hover":
-    "var(--checkbox-background-color-checked-hover)",
-  "checkbox-border-color-checked-active":
-    "var(--checkbox-background-color-checked-active)",
-  "checkbox-border-color-checked-disabled":
-    "var(--checkbox-background-color-checked-disabled)",
-  "checkbox-border-radius": "var(--border-radius-small)",
   "checkbox-margin-inline": "var(--space-small)",
-  "checkbox-opacity-disabled": "var(--button-opacity-disabled)",
   "checkbox-size": "var(--size-item-small)",
   "icon-color": {
     light: "var(--color-gray-70)",
@@ -4733,7 +4691,12 @@ export const variableLookupTable = {
   "toolbar-padding-inline": "8px",
   "toolbar-field-border-color": {
     default: "var(--border-color-transparent)",
+    nativeTheme: "var(--border-color-transparent)",
     prefersContrast: "var(--input-border-color)",
+    platform: {
+      default: "var(--border-color-transparent)",
+      browserTheme: { default: "var(--border-color-transparent)" },
+    },
   },
   "toolbar-field-border-color-focus": {
     default: "color-mix(in srgb, var(--focus-outline-color) 50%, transparent)",
@@ -4742,7 +4705,16 @@ export const variableLookupTable = {
   "toolbar-field-background-color": {
     light: "rgba(0, 0, 0, 0.05)",
     dark: "var(--color-black-alpha-30)",
+    nativeTheme: "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
     prefersContrast: "Field",
+    platform: {
+      default: "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
+      browserTheme: {
+        light: "rgba(0, 0, 0, 0.05)",
+        dark: "var(--color-black-alpha-30)",
+        default: "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
+      },
+    },
     default: "light-dark(rgba(0, 0, 0, 0.05), var(--color-black-alpha-30))",
   },
   "toolbar-field-background-color-focus": {
@@ -4880,10 +4852,28 @@ export const variableLookupTable = {
     prefersContrast: 0.3,
   },
   "toolbarbutton-border-radius": "var(--button-border-radius)",
-  "toolbarbutton-background-color-hover":
-    "color-mix(in srgb, currentColor 17%, transparent)",
-  "toolbarbutton-background-color-active":
-    "color-mix(in srgb, currentColor 30%, transparent)",
+  "toolbarbutton-background-color-hover": {
+    default: "color-mix(in srgb, currentColor 17%, transparent)",
+    forcedColors: "var(--button-background-color-hover)",
+    nativeTheme: "var(--button-background-color-ghost-hover)",
+    platform: {
+      default: "var(--button-background-color-ghost-hover)",
+      browserTheme: {
+        default: "color-mix(in srgb, currentColor 17%, transparent)",
+      },
+    },
+  },
+  "toolbarbutton-background-color-active": {
+    default: "color-mix(in srgb, currentColor 30%, transparent)",
+    forcedColors: "var(--button-background-color-active)",
+    nativeTheme: "var(--button-background-color-ghost-active)",
+    platform: {
+      default: "var(--button-background-color-ghost-active)",
+      browserTheme: {
+        default: "color-mix(in srgb, currentColor 30%, transparent)",
+      },
+    },
+  },
   "toolbarbutton-outline":
     "var(--border-width) solid var(--toolbarbutton-outline-color)",
   "toolbarbutton-outline-color": {
