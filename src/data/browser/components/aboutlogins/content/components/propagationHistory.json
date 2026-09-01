@@ -243,5 +243,11 @@
     "percentage": 39.85375,
     "delta": 0,
     "gitRevision": "fdd583cd5a10d051053acda8b760c3bd5d800034"
+  },
+  {
+    "date": "2026-09-01",
+    "percentage": 40.01812499999999,
+    "delta": 0.16,
+    "gitRevision": "fb35e92d904fdf0ae313d8635a0716aedb33d6ad"
   }
 ]
